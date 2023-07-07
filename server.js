@@ -11,7 +11,7 @@ import { getUsers, addUser } from './controllers/user.js';
 const app = express();
 dotenv.config();
 
-const PORT = process.env.PORT || 8070;
+const PORT = process.env.PORT || 8000;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -29,18 +29,18 @@ app.get('/', async(req, res) => {
     res.render('user', { users: users });
 });
 
-const URL = process.env.MONGODB_URL;
+// const URL = process.env.MONGODB_URL;
 
-mongoose.connect(URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
+// mongoose.connect(URL, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// });
 
 
-const connection = mongoose.connection;
-connection.once("open", () => {
-    console.log("Mongodb conncetion success!");
-});
+// const connection = mongoose.connection;
+// connection.once("open", () => {
+//     console.log("Mongodb conncetion success!");
+// });
 
 app.listen(PORT, () => {
     console.log('Server is up and running on port: ' + PORT);
