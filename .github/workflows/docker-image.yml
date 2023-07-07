@@ -1,7 +1,7 @@
-name: Docker Build Deploy
+name: Docker Build Deploy #here is the name of the workflow
 on:
   push:
-    branches: [main]
+    branches: [main] #name of the branch to get triggered
   workflow_dispatch:
 env:
   DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
@@ -20,8 +20,8 @@ jobs:
       - name: Docker login
         run: |
           docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-      - name: Build user service docker image
+      - name: Build docker image
         run: docker build . --file Dockerfile -t "$DOCKER_USERNAME/$PRODUCT_REPO_NAME:latest"
 
-      - name: Push user service docker image
+      - name: Push user docker image
         run: docker push "$DOCKER_USERNAME/$PRODUCT_REPO_NAME:latest"
