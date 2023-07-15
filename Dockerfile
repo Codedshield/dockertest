@@ -1,6 +1,5 @@
-FROM node:18-alpine3.14
+FROM node:18
 
-RUN npm i -g typescript ts-node
 
 WORKDIR /app
 
