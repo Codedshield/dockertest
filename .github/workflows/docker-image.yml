@@ -1,7 +1,7 @@
 name: Docker Build Deploy #here is the name of the workflow
 on:
   push:
-    branches: [main] #name of the branch to get triggered
+    branches: [staging] #name of the branch to get triggered
   workflow_dispatch:
 env:
   DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
